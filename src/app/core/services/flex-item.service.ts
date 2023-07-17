@@ -29,7 +29,7 @@ export class FlexItemService {
   }
 
   private getRandomColor() {
-    const colors = ['Cyan', 'Sky', 'Indigo', 'Violet', 'Fuchsia', 'Pink', 'purple'];
+    const colors = ['Sky', 'Indigo', 'Violet', 'Fuchsia', 'Pink', 'purple'];
     const randomIndex = Math.floor(Math.random() * colors.length);
     return `${colors[randomIndex]}`;
   }
