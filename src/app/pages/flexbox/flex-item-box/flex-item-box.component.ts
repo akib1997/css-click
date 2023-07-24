@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FlexItemService } from '@app/core/services/flex-item.service';
 import { FlexService } from '@app/core/services/flex.service';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { IFlexItemBox } from '@app/models/flex.model';
 
 @Component({
   selector: 'flex-item-box',
@@ -25,7 +26,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 })
 export class FlexItemBoxComponent implements OnInit {
   // @Input({required: true}) box: any;
-  @Input() box: any;
+  @Input() box: IFlexItemBox;
   @Input() deletable: boolean = true;
   constructor(private flexService: FlexService, private flexItemService: FlexItemService) {}
 

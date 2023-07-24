@@ -1,10 +1,14 @@
-<p class="text-lg">Flex Container <span class="text-sm text-cyan-800">(Resize it to understand well.)</span> </p>
+<p class="text-lg">
+  Flex Container
+  <span class="text-sm text-cyan-800">(Resize it to understand well.)</span>
+</p>
 <div class="relative max-w-3xl">
   <div class="resizable-div border-2 rounded shadow border-cyan-700 relative">
     <div class="gap-3 p-4 h-full" [ngStyle]="cssObject">
       <!-- <ng-container *ngFor="let item of [].constructor(5); let i = index"> -->
       <ng-container *ngFor="let box of boxes; let i = index">
         <flex-item-box
+          [ngStyle]="i + 1 === 2 ? cssObject2 : {}"
           [@boxAnimation]
           [deletable]="box.deletable"
           [box]="box"
@@ -41,7 +45,10 @@
       </svg>
     </button>
     <!-- Animation -->
-    <span class="relative flex h-4 w-4 ml-auto -translate-y-4 translate-x-4" title="Resize">
+    <span
+      class="relative flex h-4 w-4 ml-auto -translate-y-4 translate-x-4"
+      title="Resize"
+    >
       <span
         class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"
       ></span>
@@ -67,3 +74,23 @@
 </div>
 
 <!-- <div class="absolute top-4 right-4 transition-all bg-blue-600 text-white rounded shadow"></div> -->
+
+<div class="flex">
+  <div class="w-20" [@reorderAnimation]="reorderState">
+    <span class="text-xs">Flex Item</span>
+    <div
+      class="box shadow rounded bg-purple-600 text-white p-8 text-center relative"
+    >
+      <p class="font-medium text-sm">Hello 1!</p>
+    </div>
+  </div>
+  <div class="w-20" [@reorderAnimation]="reorderState">
+    <span class="text-xs">Flex Item</span>
+    <div
+      class="box shadow rounded bg-purple-600 text-white p-8 text-center relative"
+    >
+      <p class="font-medium text-sm">Hello 2!</p>
+    </div>
+  </div>
+</div>
+<button (click)="reorderBoxes()">Reorder</button>

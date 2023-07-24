@@ -1,0 +1,76 @@
+<form [formGroup]="form" class="">
+  <div class="flex gap-6 items-center justify-between border-b border-cyan-600 p-4">
+    <span class="text-lg font-medium">Flex Property:</span>
+    <span class="text-lg font-medium">Value</span>
+  </div>
+  <div class="p-4">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Flexbox
+          </mat-panel-title>
+          <mat-panel-description>
+            Flex Container
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="grid gap-">
+          <mat-form-field class="w-full">
+            <mat-label>Display</mat-label>
+            <mat-select formControlName="display">
+              <mat-option *ngFor="let food of flexValues" [value]="food">
+                {{food}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label>Flex Direction</mat-label>
+            <mat-select formControlName="flexDirection">
+              <mat-option *ngFor="let food of flexDirectionValues" [value]="food">
+                {{food}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label>Flex Wrap</mat-label>
+            <mat-select formControlName="flexWrap">
+              <mat-option *ngFor="let food of flexWrapValues" [value]="food">
+                {{food}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label>Align Items</mat-label>
+            <mat-select formControlName="alignItems">
+              <mat-option *ngFor="let food of alignItemsValues" [value]="food">
+                {{food}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label>Justify Content</mat-label>
+            <mat-select formControlName="justifyContent">
+              <mat-option *ngFor="let food of justifyContentValues" [value]="food">
+                {{food}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label>Align Content</mat-label>
+            <mat-select formControlName="alignContent">
+              <mat-option *ngFor="let food of alignContentValues" [value]="food">
+                {{food}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</form>

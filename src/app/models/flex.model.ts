@@ -17,3 +17,9 @@ export interface IFlex {
   alignItems: TAlignItemsValues;
   alignContent: TAlignContent;
 }
+
+export interface IFlexItemBox {
+  title: string;
+  color: string;
+  deletable: boolean;
+}

@@ -1,0 +1,34 @@
+<form [formGroup]="form" class="">
+  <div class="p-4">
+    <mat-accordion>
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Flexbox </mat-panel-title>
+          <mat-panel-description> Flex Item </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="grid gap-">
+          <mat-form-field class="w-full">
+            <mat-label s>Order</mat-label>
+            <mat-select formControlName="order">
+              <ng-container
+                *ngFor="let value of [].constructor(5); let i = index"
+              >
+                <mat-option [value]="i">
+                  {{ i }}
+                </mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="w-full">
+            <mat-label>Align Self</mat-label>
+            <mat-select formControlName="alignSelf">
+              <mat-option *ngFor="let value of alignSelfValues" [value]="value">
+                {{ value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</form>

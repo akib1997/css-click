@@ -9,12 +9,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
-import { FlexOutputComponent } from './components/flex-output/flex-output.component';
-import { FlexFormComponent } from './components/flex-form/flex-form.component';
-import { FlexItemBoxComponent } from './components/flex-item-box/flex-item-box.component';
+import { FlexOutputComponent } from './pages/flexbox/flex-output/flex-output.component';
+import { FlexFormComponent } from './pages/flexbox/flex-form/flex-form.component';
 import { CssCodePipe } from './shared/pipes/cssCode.pipe';
 import { TooltipComponent } from './shared/components/tooltip/tooltip.component';
 import { SuccessMessageComponent } from './shared/components/success-message/success-message.component';
+import { PropertyInformationComponent } from './components/property-information/property-information.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +22,7 @@ import { SuccessMessageComponent } from './shared/components/success-message/suc
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    FlexOutputComponent,
-    FlexFormComponent,
-    FlexItemBoxComponent
+    PropertyInformationComponent
   ],
   imports: [
     BrowserModule,

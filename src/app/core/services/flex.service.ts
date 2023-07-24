@@ -15,12 +15,9 @@ import { IFlex } from '@app/models/flex.model';
 export class FlexService {
   initialValues: IFlex = generateInitialValues(initialValuesArray);
   private flexValue = new BehaviorSubject(this.initialValues);
-
-
-  public flexValue$ = this.flexValue.asObservable();
-
+  flexValue$ = this.flexValue.asObservable();
   private stateSubject: BehaviorSubject<any>;
-  public state$: Observable<any>;
+  state$: Observable<any>;
 
   constructor() {
     this.stateSubject = new BehaviorSubject<any>(null);

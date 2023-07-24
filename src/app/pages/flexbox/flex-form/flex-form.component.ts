@@ -10,6 +10,7 @@ import { EFlex, alignContentValues, alignItemsValues, displayFlexValues, flexDir
   styleUrls: ['./flex-form.component.scss']
 })
 export class FlexFormComponent implements OnInit {
+  panelOpenState = false;
 
   flexValues = displayFlexValues;
   flexDirectionValues = flexDirectionValues;
@@ -37,8 +38,8 @@ export class FlexFormComponent implements OnInit {
       display: this.fb.control(this.flexService.initialValues.display, [Validators.required]),
       flexDirection: this.fb.control(this.flexService.initialValues.flexDirection, [Validators.required]),
       flexWrap: this.fb.control(this.flexService.initialValues.flexWrap, [Validators.required]),
-      justifyContent: this.fb.control(this.flexService.initialValues.justifyContent, [Validators.required]),
       alignItems: this.fb.control(this.flexService.initialValues.alignItems, [Validators.required]),
+      justifyContent: this.fb.control(this.flexService.initialValues.justifyContent, [Validators.required]),
       alignContent: this.fb.control(this.flexService.initialValues.alignContent, [Validators.required]),
     });
 

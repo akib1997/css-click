@@ -54,12 +54,17 @@ import { SuccessMessageComponent } from '@app/shared/components/success-message/
         ),
       ]),
     ]),
+    trigger('reorderAnimation', [
+      state('initial', style({})),
+      state('reordered', style({ transform: 'translate(-100px, -100px)' })),
+      transition('initial => reordered', animate('500ms ease-in-out')),
+    ]),
   ],
 })
 export class FlexOutputComponent implements OnInit {
-  @ViewChild('messageAnchor', { read: ViewContainerRef }) messageAnchor: ViewContainerRef;
+  @ViewChild('messageAnchor', { read: ViewContainerRef })
+  messageAnchor: ViewContainerRef;
 
-  hello = 'text-center bg-blue-500 text-white rounded shadow my-6';
   copyCode(code: any) {
     const jsonString = objectToCSS(code);
     const el = document.createElement('textarea');
@@ -68,7 +73,7 @@ export class FlexOutputComponent implements OnInit {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
-    this.showSuccessMessage()
+    this.showSuccessMessage();
     // // Show copied message
     // const message = document.createElement('div');
     // message.classList?.add(
@@ -92,8 +97,21 @@ export class FlexOutputComponent implements OnInit {
 
   flexValue$: Observable<any>;
   cssObject: any;
+  cssObject2: any;
   state$: Observable<any>;
   generatedCode: any;
+
+  reorderState: string = 'initial';
+  boxes2 = [1, 2];
+  reorderBoxes() {
+    this.reorderState = 'reordered';
+
+    setTimeout(() => {
+      // Swap the positions of the boxes
+      [this.boxes2[0], this.boxes2[1]] = [this.boxes2[1], this.boxes2[0]];
+      this.reorderState = 'initial';
+    }, 500);
+  }
 
   boxes: any[] = [];
   constructor(
@@ -108,7 +126,9 @@ export class FlexOutputComponent implements OnInit {
   }
 
   showSuccessMessage() {
-    const factory = this.componentFactoryResolver.resolveComponentFactory(SuccessMessageComponent);
+    const factory = this.componentFactoryResolver.resolveComponentFactory(
+      SuccessMessageComponent
+    );
     const componentRef: any = this.messageAnchor.createComponent(factory);
     componentRef.instance.message = 'Copied!';
     componentRef.instance.closeAfter(3000);
@@ -116,25 +136,28 @@ export class FlexOutputComponent implements OnInit {
 
   ngOnInit() {
     this.loadCSS();
+    this.loadCSS2();
     this.boxes = this.flexItemService.boxes;
   }
 
   addBox() {
     this.flexItemService.createBox();
-
-
   }
 
   removeBox(box: any) {
     this.flexItemService.removeBox(box);
-    // this.boxes = this.boxes.filter((b) => b !== box);
-
   }
 
   loadCSS(): void {
     this.flexService.flexValue$.subscribe((cssProps) => {
       console.log(cssProps, 'CSS from Service');
       this.cssObject = cssProps;
+    });
+  }
+
+  loadCSS2(): void {
+    this.flexItemService.flexItemData.subscribe((d) => {
+      this.cssObject2 = d;
     });
   }
 }
