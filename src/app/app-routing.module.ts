@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/flexbox/flexbox.module').then(m => m.FlexboxModule)
   },
   {
-    path: 'flexbox',
+    path: 'grid',
     loadChildren: () => import('./pages/grid/grid.module').then(m => m.GridModule)
   },
   {

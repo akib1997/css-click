@@ -15,6 +15,7 @@ import { CssCodePipe } from './shared/pipes/cssCode.pipe';
 import { TooltipComponent } from './shared/components/tooltip/tooltip.component';
 import { SuccessMessageComponent } from './shared/components/success-message/success-message.component';
 import { PropertyInformationComponent } from './components/property-information/property-information.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PropertyInformationComponent } from './components/property-information/
   ],
   imports: [
     BrowserModule,
+    // RouterModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

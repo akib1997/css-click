@@ -1,3 +1,11 @@
-<p>
-  grid works!
-</p>
+<div class="w-full flex items-center justify-center overflow-auto" style="height: calc(100vh - 74px);">
+  <div class="grid grid-cols-4 gap-4 h-full w-full">
+    <div class="border-r border-cyan-600 h-full self-stretch col-span-1">
+      <grid-form></grid-form>
+      <!-- <flex-item-form></flex-item-form> -->
+    </div>
+    <div class="p-4 col-span-3">
+      <app-grid-output></app-grid-output>
+    </div>
+  </div>
+</div>
