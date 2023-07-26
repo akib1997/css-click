@@ -21,6 +21,7 @@ import {
   keyframes,
 } from '@angular/animations';
 import { SuccessMessageComponent } from '@app/shared/components/success-message/success-message.component';
+import { BoxService } from '@app/core/services/box.service';
 
 @Component({
   selector: 'app-flex-output',
@@ -116,6 +117,7 @@ export class FlexOutputComponent implements OnInit {
   boxes: any[] = [];
   constructor(
     private flexService: FlexService,
+    private boxService: BoxService,
     private toCSS: CssCodePipe,
     private flexItemService: FlexItemService,
     private viewContainerRef: ViewContainerRef,
@@ -137,15 +139,15 @@ export class FlexOutputComponent implements OnInit {
   ngOnInit() {
     this.loadCSS();
     this.loadCSS2();
-    this.boxes = this.flexItemService.boxes;
+    this.boxes = this.boxService.boxes;
   }
 
   addBox() {
-    this.flexItemService.createBox();
+    this.boxService.createBox();
   }
 
   removeBox(box: any) {
-    this.flexItemService.removeBox(box);
+    this.boxService.removeBox(box);
   }
 
   loadCSS(): void {

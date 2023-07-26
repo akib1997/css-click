@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IFlexItem } from '@app/pages/flexbox/flex-item-form/flex-item-form.component';
 import { BehaviorSubject } from 'rxjs';
 import { convertToCSSProperty } from '../utilities/convertToCSSPropertiy';
-import { IFlexItemBox } from '@app/models/flex.model';
+
 
 @Injectable({
   providedIn: 'root',
@@ -27,13 +27,6 @@ export class FlexItemService {
 
   flexItemData = this.dataSource.asObservable();
 
-  boxes: IFlexItemBox[] = [
-    { title: 'Box 1', color: 'red', deletable: false },
-    { title: 'Box 2', color: 'fuchsia', deletable: true },
-    { title: 'Box 3', color: 'blue', deletable: false },
-    { title: 'Box 4', color: 'sky', deletable: false },
-  ];
-
   constructor(){}
 
   updateFlexItemData(data: any) {
@@ -45,33 +38,6 @@ export class FlexItemService {
       }
     }
     this.dataSource.next(data)
-  }
-
-
-  createBox() {
-    const box = this.generateBox();
-    this.boxes.push(box);
-  }
-
-  removeBox(box: IFlexItemBox) {
-    const index = this.boxes.indexOf(box);
-    if (index !== -1) {
-      this.boxes.splice(index, 1);
-    }
-  }
-
-  generateBox() {
-    const title = `Box ${this.boxes.length + 1}`;
-    const color = this.getRandomColor();
-    const deletable = Math.random() < 0.5;
-
-    return { title, color, deletable };
-  }
-
-  private getRandomColor() {
-    const colors = ['Sky', 'Indigo', 'Violet', 'Fuchsia', 'Pink', 'purple'];
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    return `${colors[randomIndex]}`;
   }
 }
 
