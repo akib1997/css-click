@@ -1,32 +1,53 @@
 <form [formGroup]="form" class="">
-  <div class="flex gap-6 items-center justify-between border-b border-cyan-600 p-4">
-    <span class="text-lg font-medium">Flex Property:</span>
+  <div
+    class="flex gap-6 items-center justify-between border-b border-cyan-600 p-4"
+  >
+    <span class="text-lg font-medium">Grid Property:</span>
     <span class="text-lg font-medium">Value</span>
   </div>
   <div class="p-4">
     <mat-accordion>
-      <mat-expansion-panel>
+      <mat-expansion-panel expanded>
         <mat-expansion-panel-header>
-          <mat-panel-title>
-            Grid
-          </mat-panel-title>
-          <mat-panel-description>
-            Grid Container
-          </mat-panel-description>
+          <mat-panel-title> Grid </mat-panel-title>
+          <mat-panel-description> Grid Container </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="grid gap-">
           <mat-form-field class="w-full">
             <mat-label>Display</mat-label>
             <mat-select formControlName="display">
               <mat-option *ngFor="let value of displyValues" [value]="value">
-                {{value}}
+                {{ value }}
               </mat-option>
             </mat-select>
           </mat-form-field>
 
+          <!-- Rows  -->
+          <div class="w-full">
+            <div formArrayName="gridTemplateColumns">
+              <div
+                *ngFor="
+                  let column of gridTemplateColumnsArray.controls;
+                  let i = index
+                "
+              >
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Column Width</mat-label>
+                    <input
+                    type="number"
+                      matInput
+                      [formControlName]="i"
+                      placeholder="Column width"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </mat-expansion-panel>
     </mat-accordion>
+
   </div>
 </form>
-

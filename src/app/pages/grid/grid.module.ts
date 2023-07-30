@@ -12,6 +12,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { TooltipComponent } from '@app/shared/components/tooltip/tooltip.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { GridService } from './services/grid.service';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   imports: [
@@ -23,6 +25,8 @@ import { GridService } from './services/grid.service';
     MatSelectModule,
     TooltipComponent,
     MatExpansionModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   declarations: [GridComponent,GridFormComponent, GridItemBoxComponent, GridOutputComponent, GridItemFormComponent],
   providers: [GridService]

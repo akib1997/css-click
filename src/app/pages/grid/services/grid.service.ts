@@ -12,7 +12,7 @@ export class GridService {
 
   constructor() {}
 
-  setFlexValue(data: any): void {
+  updateGridValue(data: any): void {
     const cssObj: any = {};
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
@@ -22,19 +22,14 @@ export class GridService {
     }
     return this.gridValue.next(cssObj);
   }
-
 }
 
 function generateInitialValues(valuesArray: any[]): IGrid {
   return {
     display: valuesArray[0],
-    gridTemplateColumns: [100, 100, 100],
-    gridTemplateRows: [],
+    gridTemplateColumns: valuesArray[1],
+    gridTemplateRows: valuesArray[2],
   };
 }
 
-const initialValuesArray = [
-  displayGridValues[0],
-  [100, 100, 100],
-  [],
-];
+const initialValuesArray = [displayGridValues[0], [150, 100, 50, 160], [1, 1]];

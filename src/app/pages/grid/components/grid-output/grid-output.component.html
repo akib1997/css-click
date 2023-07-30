@@ -4,20 +4,14 @@
 </p>
 <div class="relative max-w-3xl">
   <div class="resizable-div border-2 rounded shadow border-cyan-700 relative">
-    <div class="gap-3 p-4 h-full" [ngStyle]="loadGirdContainerCSS">
-      <!-- <ng-container *ngFor="let item of [].constructor(5); let i = index"> -->
+    <div class="gap-3 p-4 h-full grid-container">
+      <!-- [ngStyle]="loadGirdContainerCSS" -->
       <ng-container *ngFor="let box of boxes; let i = index">
         <grid-item-box
-
           [@boxAnimation]
           [deletable]="box.deletable"
           [box]="box"
         ></grid-item-box>
-        <!-- <div
-          class="w-20 text-center shadow-lg p-3 bg-blue-600 text-white font-medium"
-        >
-          Item {{ i + 1 }}
-        </div> -->
       </ng-container>
     </div>
   </div>
